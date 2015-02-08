@@ -45,4 +45,22 @@ set statusline+=\(Lines:\%L)                 " Total Lines
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 
 
+" Start up Pathogen
+execute pathogen#infect()
+
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+" https://github.com/davidhalter/jedi-vim/blob/master/doc/jedi-vim.txt
+let g:jedi#show_call_signatures = 2
+let g:jedi#popup_on_dot = 0
+
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_quiet_messages = { "type": "style" }
 
